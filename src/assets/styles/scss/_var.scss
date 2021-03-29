@@ -1,0 +1,26 @@
+// Background
+$bg-color-1: #100E1D;
+$bg-color-2: #1E213A;
+$bg-color-3: #6E707A;
+
+// Fonts
+@font-face {
+    src: url('../../fonts/Raleway/Raleway-Medium.ttf');
+    font-family: "Raleway";
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    src: url('../../fonts/MaterialDesign/MaterialIcons-Regular.ttf');
+    font-family: "MaterialIcons";
+}
+
+$font-family-1: Raleway, Arial, Helvetica, sans-serif;
+$icons: MaterialIcons;
+$font-color-1: #E7E7EB;
+$font-color-2: #A09FB1;
+$font-size-1: 16px;
+
+// Other
+$circle-radius: 9999px;

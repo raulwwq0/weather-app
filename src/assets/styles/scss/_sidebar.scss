@@ -1,11 +1,11 @@
+@use 'var';
+
 #sidebar{
     display: block;
     position: absolute;
-    background-color: #1E213A;
-    background-image: url("../../images/Cloud-background.png");
-    background-repeat: no-repeat;
-    background-position-x: center;
-    width: 30%;
+    overflow: hidden;
+    background-color: var.$bg-color-2;
+    width: 460px;
     height: 100vh;
 
     #sidebar-buttons{
@@ -13,12 +13,86 @@
         justify-content: space-between;
         margin: 45px;
 
-        #search-button{
+        #search-button,
+        #gps-button{
             height: 40px;
-            width: 160px;
             border: none;
-            background-color: #6E707A;
-            color: #fff;
+            background-color: var.$bg-color-3;
+            color: var.$font-color-1;
+        }
+
+        #search-button{
+            width: 160px;
+            font-size: var.$font-size-1;
+        }
+
+        #gps-button{
+            width: 40px;
+            border-radius: var.$circle-radius;
+        }
+    }
+    #weather-img {
+        position: relative;
+        height: 400px;
+
+        #cloud-bg{
+            display: block;
+            position: absolute;
+            left: -110px;
+            filter: opacity(0.1);
+        }
+
+        .weather-state{
+            display: block;
+            position: absolute;
+            top: 100px;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+    }
+    #temperature{
+        text-align: center;
+        #temperature-number{
+            font-size: 144px;
+            color: var.$font-color-1;
+        }
+        #temperature-unit{
+            font-size: 48px;
+            color: var.$font-color-2;
+            font-weight: 100;
+        }
+    }
+
+    #weather-name{
+        font-size: 36px;
+        font-weight: 600;
+        text-align: center;
+        color: var.$font-color-2;
+        margin-top: 80px;
+    }
+
+    #user-data{
+        color: var.$font-color-2;
+        text-align: center;
+        margin-top: 80px;
+
+        #date{
+            font-size: 18px;
+        }
+
+        #user-location{
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            margin-top: 30px;
+            
+
+            #city-name{
+                text-transform: capitalize;
+            }
         }
     }
 }

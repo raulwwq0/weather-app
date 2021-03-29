@@ -1,11 +1,19 @@
+@font-face {
+  src: url("../../fonts/Raleway/Raleway-Medium.ttf");
+  font-family: "Raleway";
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  src: url("../../fonts/MaterialDesign/MaterialIcons-Regular.ttf");
+  font-family: "MaterialIcons";
+}
 #sidebar {
   display: block;
   position: absolute;
+  overflow: hidden;
   background-color: #1E213A;
-  background-image: url("../../images/Cloud-background.png");
-  background-repeat: no-repeat;
-  background-position-x: center;
-  width: 30%;
+  width: 460px;
   height: 100vh;
 }
 #sidebar #sidebar-buttons {
@@ -13,21 +21,108 @@
   justify-content: space-between;
   margin: 45px;
 }
-#sidebar #sidebar-buttons #search-button {
+#sidebar #sidebar-buttons #search-button,
+#sidebar #sidebar-buttons #gps-button {
   height: 40px;
-  width: 160px;
   border: none;
   background-color: #6E707A;
-  color: #fff;
+  color: #E7E7EB;
+}
+#sidebar #sidebar-buttons #search-button {
+  width: 160px;
+  font-size: 16px;
+}
+#sidebar #sidebar-buttons #gps-button {
+  width: 40px;
+  border-radius: 9999px;
+}
+#sidebar #weather-img {
+  position: relative;
+  height: 400px;
+}
+#sidebar #weather-img #cloud-bg {
+  display: block;
+  position: absolute;
+  left: -110px;
+  filter: opacity(0.1);
+}
+#sidebar #weather-img .weather-state {
+  display: block;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+#sidebar #temperature {
+  text-align: center;
+}
+#sidebar #temperature #temperature-number {
+  font-size: 144px;
+  color: #E7E7EB;
+}
+#sidebar #temperature #temperature-unit {
+  font-size: 48px;
+  color: #A09FB1;
+  font-weight: 100;
+}
+#sidebar #weather-name {
+  font-size: 36px;
+  font-weight: 600;
+  text-align: center;
+  color: #A09FB1;
+  margin-top: 80px;
+}
+#sidebar #user-data {
+  color: #A09FB1;
+  text-align: center;
+  margin-top: 80px;
+}
+#sidebar #user-data #date {
+  font-size: 18px;
+}
+#sidebar #user-data #user-location {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-top: 30px;
+}
+#sidebar #user-data #user-location #city-name {
+  text-transform: capitalize;
 }
 
 * {
   margin: 0;
   padding: 0;
+  font-family: Raleway, Arial, Helvetica, sans-serif;
 }
 
 body {
   background-color: #100E1D;
+}
+
+.material-icons {
+  font-family: MaterialIcons;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: "liga";
 }
 
 /*# sourceMappingURL=styles.css.map */
