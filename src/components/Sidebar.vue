@@ -103,14 +103,15 @@
 <script>
 import { onMounted, ref } from "vue";
 import axios from "axios";
+import store from "../store";
 
 export default {
   name: "Sidebar",
   setup() {
     const api = "http://api.openweathermap.org/data/2.5";
     const api_key = process.env.VUE_APP_API_KEY;
-    var units = "metric"; // metric = celsius, imperial = fahrenheit
-    var location = "malaga";
+    var units = store.state.units; // metric = celsius, imperial = fahrenheit
+    var location = store.state.location;
     var temperature = ref(null);
     var weather_main = ref(null);
     var weather_description = ref(null);
