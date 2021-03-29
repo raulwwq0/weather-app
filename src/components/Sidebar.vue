@@ -85,7 +85,8 @@
 
     <div id="temperature">
       <span id="temperature-number">{{ temperature }}</span>
-      <span id="temperature-unit">°C</span>
+      <span id="temperature-unit" v-if="units == 'metric'">°C</span>
+      <span id="temperature-unit" v-if="units == 'imperial'">°F</span>
     </div>
 
     <h2 id="weather-name">{{ weather_main }}</h2>
@@ -135,6 +136,7 @@ export default {
 
     return {
       location,
+      units,
       temperature,
       weather_main,
       weather_description,
