@@ -1,0 +1,24 @@
+#sidebar{
+    display: block;
+    position: absolute;
+    background-color: #1E213A;
+    background-image: url("../../images/Cloud-background.png");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    width: 30%;
+    height: 100vh;
+
+    #sidebar-buttons{
+        display: flex;
+        justify-content: space-between;
+        margin: 45px;
+
+        #search-button{
+            height: 40px;
+            width: 160px;
+            border: none;
+            background-color: #6E707A;
+            color: #fff;
+        }
+    }
+}
