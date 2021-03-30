@@ -1,0 +1,98 @@
+@use 'var';
+
+#search-bar{
+    background-color: var.$bg-color-2;
+    height: 100vh;
+    width: 460px - 90px;
+    padding-top: 80px;
+    padding-left: 45px;
+    padding-right: 45px;
+    position: absolute;
+    left: -500px;
+
+    #search-close-button{
+        display: block;
+        position: absolute;
+        top: 25px;
+        right: 45px;
+        cursor: pointer;
+        font-size: 30px;
+        color: var.$font-color-1;
+    }
+
+    #search-form {
+        width: 100%;
+        position: relative;
+
+        #location-label {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            //z-index: -1;
+            top: 0;
+            bottom: 0;
+            left: 15px;
+            margin: auto;
+            height: 40px;
+            background-color: var.$bg-color-2;
+            color: var.$font-color-2;
+            font-size: var.$font-size-1;
+            pointer-events: none;
+            span{
+                margin-right: 20px;
+            }
+        }
+
+        #search-location{
+            width: 65%;
+            height: 50px;
+            padding-left: 20px;
+            background-color: var.$bg-color-2;
+            color: var.$font-color-2;
+            border: 1px solid var.$font-color-1;
+            font-size: var.$font-size-1;
+        }
+
+        #search-button{
+            width: 25%;
+            height: 50px;
+            margin-left: 3%;
+            background-color: #3C47E9;
+            color: var.$font-color-1;
+            font-family: var.$font-family-1;
+            font-size: var.$font-size-1;
+            border: none;
+        }
+
+
+    }
+
+    #search-results{
+        margin-top: 60px;
+
+        .result-button{
+            display: flex;
+            color: var.$font-color-1;
+            width: 95%;
+            padding: 22px 12px;
+            margin-bottom: 30px;
+            border: 1px solid transparent;
+            h3{
+                width: 95%;
+            }
+            span{
+                width: 5%;
+                opacity: 0;
+            }
+        }
+
+        .result-button:hover{
+            transition: all 0.3s ease;
+            border: 1px solid var.$font-color-2;
+            span{
+                opacity: 1;
+            }
+        }
+    }
+}
+

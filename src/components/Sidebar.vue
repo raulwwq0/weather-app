@@ -1,7 +1,7 @@
 <template>
   <div id="sidebar">
     <div id="sidebar-buttons">
-      <button id="search-button">Search for places</button>
+      <button id="search-button" @click="openSearchMenu()">Search for places</button>
       <button id="gps-button" class="material-icons">my_location</button>
     </div>
 
@@ -103,6 +103,7 @@
 <script>
 import { ref, watchEffect } from "vue";
 import axios from "axios";
+import gsap from "gsap";
 import store from "../store";
 
 export default {
@@ -111,15 +112,17 @@ export default {
     const api = "http://api.openweathermap.org/data/2.5";
     const api_key = process.env.VUE_APP_API_KEY;
     var units = ref(store.state.units);
-    var location = store.state.location;
+    var location = ref(store.state.location);
+    var lat = ref(store.state.latitude);
+    var lon = ref(store.state.longitude);
     var temperature = ref(null);
     var weather_main = ref(null);
     var weather_description = ref(null);
 
-    function getWeatherData(units) {
+    function getWeatherData(location, units, lat, lon) {
       axios
         .get(
-          `${api}/weather?q=${location}&appid=${api_key}&units=${units}`
+          `${api}/weather?lat=${lat}&lon=${lon}&appid=${api_key}&units=${units}`
         )
         .then((res) => {
           console.log(res);
@@ -133,8 +136,15 @@ export default {
         });
     }
 
+    function openSearchMenu(){
+      gsap.to('#search-bar', {x: '500px', duration: 0.5});
+    }
+
     watchEffect(() => {
-      getWeatherData(store.state.units);
+      getWeatherData(store.state.location, store.state.units, store.state.latitude, store.state.longitude);
+      location.value = store.state.location;
+      lat.value = store.state.latitude;
+      lon.value = store.state.longitude;
       units.value = store.state.units;
     });
 
@@ -144,6 +154,7 @@ export default {
       temperature,
       weather_main,
       weather_description,
+      openSearchMenu
     };
   },
 };

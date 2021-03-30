@@ -4,6 +4,8 @@ const store = createStore({
   state: {
     units: "metric",
     location: "malaga",
+    latitude: "36.7213028",
+    longitude: "-4.4216366",
   },
   mutations: {
     FAHRENHEIT:(state) => {
@@ -12,7 +14,14 @@ const store = createStore({
 
     CELSIUS: (state) => {
         state.units = "metric";
-    }
+    },
+
+    SET_CITY: (state, data) => {
+      state.location = data.city;
+      state.latitude = data.lat;
+      state.longitude = data.lon;
+    },
+
   },
 });
 
