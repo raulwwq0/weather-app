@@ -101,7 +101,7 @@
 </template>
 
 <script>
-import { onMounted, ref } from "vue";
+import { ref, watchEffect } from "vue";
 import axios from "axios";
 import store from "../store";
 
@@ -110,15 +110,17 @@ export default {
   setup() {
     const api = "http://api.openweathermap.org/data/2.5";
     const api_key = process.env.VUE_APP_API_KEY;
-    var units = store.state.units; // metric = celsius, imperial = fahrenheit
+    var units = ref(store.state.units);
     var location = store.state.location;
     var temperature = ref(null);
     var weather_main = ref(null);
     var weather_description = ref(null);
 
-    function getWeatherData() {
+    function getWeatherData(units) {
       axios
-        .get(`${api}/weather?q=${location}&appid=${api_key}&units=${units} `)
+        .get(
+          `${api}/weather?q=${location}&appid=${api_key}&units=${units}`
+        )
         .then((res) => {
           console.log(res);
           // Get temperature
@@ -131,8 +133,9 @@ export default {
         });
     }
 
-    onMounted(() => {
-      getWeatherData();
+    watchEffect(() => {
+      getWeatherData(store.state.units);
+      units.value = store.state.units;
     });
 
     return {

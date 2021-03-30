@@ -1,0 +1,26 @@
+@use 'var';
+
+#temperature-buttons{
+    position: absolute;
+    top: 45px;
+    right: 125px;
+    #fahrenheit{
+        margin-left: 12px;
+    }
+
+    .temperature-button{
+        width: 40px;
+        height: 40px;
+        border: none;
+        border-radius: var.$circle-radius;
+        background-color: var.$bg-color-4;
+        color: var.$font-color-1;
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    .active{
+        background-color: var.$font-color-1;
+        color: var.$bg-color-1;
+    }
+}
