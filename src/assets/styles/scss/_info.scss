@@ -95,6 +95,20 @@
                 }
             }
 
+            #wind-direction{
+                justify-self: center;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                width: 100px;
+                #wind-direction-mark{
+                    border-radius: var.$circle-radius;
+                    background-color: rgba(255,255,255, 0.3);
+                    padding: 5px;
+                    transform: rotate(0deg);
+                }
+            }
+
             #humidity-bar,
             progress{
                 position: absolute;

@@ -292,6 +292,25 @@
 #info #highlights #air-pressure .result .result-unit {
   font-size: 32px;
 }
+#info #highlights #wind-status #wind-direction,
+#info #highlights #humidity #wind-direction,
+#info #highlights #visibility #wind-direction,
+#info #highlights #air-pressure #wind-direction {
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100px;
+}
+#info #highlights #wind-status #wind-direction #wind-direction-mark,
+#info #highlights #humidity #wind-direction #wind-direction-mark,
+#info #highlights #visibility #wind-direction #wind-direction-mark,
+#info #highlights #air-pressure #wind-direction #wind-direction-mark {
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 5px;
+  transform: rotate(0deg);
+}
 #info #highlights #wind-status #humidity-bar,
 #info #highlights #wind-status progress,
 #info #highlights #humidity #humidity-bar,
