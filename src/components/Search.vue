@@ -46,19 +46,16 @@ export default {
             let input = document.getElementById("search-location");
 
             city.value = input.value;
-            console.log(city.value);
             getCities();
         }
 
         function getCities(){
             axios.get(`${api}direct?q=${city.value}&limit=10&appid=${api_key}`).then((res) => {
                 results.value = res.data;
-                console.log(results.value);
-            });
+                });
         }
 
         function setCity(city, lat, lon){
-            console.log(city, lat, lon)
             store.commit("SET_CITY", {
                 city: city,
                 lat: lat,

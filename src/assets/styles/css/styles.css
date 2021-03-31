@@ -78,6 +78,7 @@
   color: #A09FB1;
   text-align: center;
   margin-top: 80px;
+  margin-bottom: 50px;
 }
 #sidebar #user-data #date {
   font-size: 18px;
@@ -206,6 +207,7 @@
   display: grid;
   grid-area: info;
   grid-template-rows: 180px auto;
+  grid-gap: 70px;
   padding: 150px;
   padding-right: 125px;
 }
@@ -244,6 +246,92 @@
 }
 #info #five-days-weather .weather-box .weather-temperature .min-temperature {
   color: #A09FB1;
+}
+#info #highlights {
+  display: grid;
+  grid-template-areas: "title title" "wind-status humidity" "visibility air-presure";
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 25px auto 160px;
+  grid-gap: 50px;
+  color: #E7E7EB;
+}
+#info #highlights #title {
+  grid-area: title;
+  font-size: 24px;
+}
+#info #highlights #wind-status,
+#info #highlights #humidity,
+#info #highlights #visibility,
+#info #highlights #air-pressure {
+  display: grid;
+  grid-template-rows: 50px auto;
+  justify-content: center;
+  align-items: center;
+  background-color: #1E213A;
+  position: relative;
+}
+#info #highlights #wind-status h3,
+#info #highlights #humidity h3,
+#info #highlights #visibility h3,
+#info #highlights #air-pressure h3 {
+  font-size: 16px;
+  font-weight: 100;
+  text-align: center;
+}
+#info #highlights #wind-status .result,
+#info #highlights #humidity .result,
+#info #highlights #visibility .result,
+#info #highlights #air-pressure .result {
+  font-size: 64px;
+  text-align: center;
+  align-self: flex-start;
+}
+#info #highlights #wind-status .result .result-unit,
+#info #highlights #humidity .result .result-unit,
+#info #highlights #visibility .result .result-unit,
+#info #highlights #air-pressure .result .result-unit {
+  font-size: 32px;
+}
+#info #highlights #wind-status #humidity-bar,
+#info #highlights #wind-status progress,
+#info #highlights #humidity #humidity-bar,
+#info #highlights #humidity progress,
+#info #highlights #visibility #humidity-bar,
+#info #highlights #visibility progress,
+#info #highlights #air-pressure #humidity-bar,
+#info #highlights #air-pressure progress {
+  position: absolute;
+  bottom: 40px;
+  justify-self: center;
+  align-self: flex-start;
+  width: 80%;
+  height: 10px;
+  border-radius: 9999px;
+}
+#info #highlights #wind-status progress::-webkit-progress-bar,
+#info #highlights #wind-status progress::-moz-progress-bar,
+#info #highlights #humidity progress::-webkit-progress-bar,
+#info #highlights #humidity progress::-moz-progress-bar,
+#info #highlights #visibility progress::-webkit-progress-bar,
+#info #highlights #visibility progress::-moz-progress-bar,
+#info #highlights #air-pressure progress::-webkit-progress-bar,
+#info #highlights #air-pressure progress::-moz-progress-bar {
+  height: 10px;
+  background: #FFEC65;
+  border-radius: 9999px;
+}
+#info #highlights #wind-status,
+#info #highlights #humidity {
+  min-height: 200px;
+  grid-template-rows: 50px auto 70px;
+}
+#info #creator {
+  color: #A09FB1;
+  justify-self: center;
+}
+#info #creator a {
+  text-decoration: none;
+  color: #E7E7EB;
 }
 
 * {

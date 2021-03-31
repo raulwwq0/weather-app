@@ -114,7 +114,6 @@ export default {
           `${api}/onecall?lat=${lat}&lon=${lon}&units=${units}&exclude=current,minutely,hourly,alerts&appid=${api_key}`
         )
         .then((res) => {
-          console.log(res);
           results.value = res.data.daily;
           store.commit("SET_DATE", changeDateFormat(results.value[0].dt));
           results.value.splice(0, 1);

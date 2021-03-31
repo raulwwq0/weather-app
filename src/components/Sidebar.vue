@@ -126,7 +126,6 @@ export default {
           `${api}/onecall?lat=${lat}&lon=${lon}&units=${units}&exclude=daily,minutely,hourly,alerts&appid=${api_key}`
         )
         .then((res) => {
-          console.log(res);
           // Get temperature
           temperature.value = res.data.current.temp;
           temperature.value = temperature.value.toFixed();
