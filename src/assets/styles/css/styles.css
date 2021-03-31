@@ -228,7 +228,6 @@
   justify-self: center;
 }
 #info #five-days-weather .weather-box .five-days-weather-img {
-  width: 60px;
   height: 60px;
   justify-self: center;
   align-self: flex-start;
