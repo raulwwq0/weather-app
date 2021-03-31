@@ -47,6 +47,8 @@ export default {
 
             city.value = input.value;
             getCities();
+            
+            input.value = "";
         }
 
         function getCities(){
