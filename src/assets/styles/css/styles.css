@@ -9,7 +9,8 @@
   font-family: "MaterialIcons";
 }
 #sidebar {
-  display: block;
+  grid-area: sidebar;
+  display: grid;
   position: absolute;
   overflow: hidden;
   background-color: #1E213A;
@@ -201,6 +202,51 @@
   opacity: 1;
 }
 
+#info {
+  display: grid;
+  grid-area: info;
+  grid-template-rows: 180px auto;
+  padding: 150px;
+  padding-right: 125px;
+}
+#info #five-days-weather {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 25px;
+}
+#info #five-days-weather .weather-box {
+  display: grid;
+  align-items: center;
+  width: 100%;
+  height: 180px;
+  background-color: #1E213A;
+}
+#info #five-days-weather .weather-box .weather-day {
+  color: #E7E7EB;
+  font-weight: 100;
+  font-size: 16px;
+  justify-self: center;
+}
+#info #five-days-weather .weather-box .five-days-weather-img {
+  width: 60px;
+  height: 60px;
+  justify-self: center;
+  align-self: flex-start;
+}
+#info #five-days-weather .weather-box .weather-temperature .max-temperature,
+#info #five-days-weather .weather-box .weather-temperature .min-temperature {
+  display: block;
+  float: left;
+  width: 50%;
+  text-align: center;
+  color: #E7E7EB;
+  font-size: 16px;
+  justify-self: flex-start;
+}
+#info #five-days-weather .weather-box .weather-temperature .min-temperature {
+  color: #A09FB1;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -212,6 +258,13 @@ body {
   background-color: #100E1D;
   overflow-x: hidden;
   overflow-y: hidden;
+}
+
+#app {
+  display: grid;
+  height: 100vh;
+  grid-template-areas: "sidebar info";
+  grid-template-columns: 460px auto;
 }
 
 .material-icons {

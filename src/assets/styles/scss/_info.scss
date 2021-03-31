@@ -1,0 +1,53 @@
+@use 'var';
+
+#info{
+    display: grid;
+    grid-area: info;
+    grid-template-rows: 180px auto;
+    padding: 150px;
+    padding-right: 125px;
+
+    #five-days-weather{
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 25px;
+        .weather-box{
+            display: grid;
+            align-items: center;
+            width: 100%;
+            height: 180px;
+            background-color: var.$bg-color-2;
+
+            .weather-day{
+                color: var.$font-color-1;
+                font-weight: 100;
+                font-size: var.$font-size-1;
+                justify-self: center;
+            }
+
+            .five-days-weather-img{
+                width: 60px;
+                height: 60px;
+                justify-self: center;
+                align-self: flex-start;
+            }
+
+            .weather-temperature{
+                .max-temperature,
+                .min-temperature{
+                    display: block;
+                    float: left;
+                    width: 50%;
+                    text-align: center;
+                    color: var.$font-color-1;
+                    font-size: var.$font-size-1;
+                    justify-self: flex-start;
+                }
+
+                .min-temperature{
+                    color: var.$font-color-2;
+                }
+            }           
+        }
+    }
+}

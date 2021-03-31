@@ -2,6 +2,7 @@
 @use 'sidebar';
 @use 'temperature';
 @use 'search';
+@use 'info';
 
 *{
     margin: 0;
@@ -14,6 +15,13 @@ body{
     background-color: var.$bg-color-1;
     overflow-x: hidden;
     overflow-y: hidden;
+}
+
+#app{
+    display: grid;
+    height: 100vh;
+    grid-template-areas: 'sidebar info';
+    grid-template-columns: 460px auto;
 }
 
 // Material Design Icons styles

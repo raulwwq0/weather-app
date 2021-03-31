@@ -91,7 +91,7 @@
 
     <h2 id="weather-name">{{ weather_main }}</h2>
     <div id="user-data">
-      <h3 id="date">Today • Fri, 5 Jun</h3>
+      <h3 id="date">Today • {{date}}</h3>
       <h3 id="user-location">
         <span class="material-icons">location_on</span>
         <span id="city-name">{{ location }}</span>
@@ -109,7 +109,7 @@ import store from "../store";
 export default {
   name: "Sidebar",
   setup() {
-    const api = "http://api.openweathermap.org/data/2.5";
+    const api = "http://api.openweathermap.org/data/2.5/";
     const api_key = process.env.VUE_APP_API_KEY;
     var units = ref(store.state.units);
     var location = ref(store.state.location);
@@ -118,21 +118,22 @@ export default {
     var temperature = ref(null);
     var weather_main = ref(null);
     var weather_description = ref(null);
+    var date = ref(store.state.current_date);
 
     function getWeatherData(location, units, lat, lon) {
       axios
         .get(
-          `${api}/weather?lat=${lat}&lon=${lon}&appid=${api_key}&units=${units}`
+          `${api}/onecall?lat=${lat}&lon=${lon}&units=${units}&exclude=daily,minutely,hourly,alerts&appid=${api_key}`
         )
         .then((res) => {
           console.log(res);
           // Get temperature
-          temperature.value = res.data.main.temp;
+          temperature.value = res.data.current.temp;
           temperature.value = temperature.value.toFixed();
 
           // Get weather
-          weather_main.value = res.data.weather[0].main;
-          weather_description.value = res.data.weather[0].description;
+          weather_main.value = res.data.current.weather[0].main;
+          weather_description.value = res.data.current.weather[0].description;
         });
     }
 
@@ -146,6 +147,7 @@ export default {
       lat.value = store.state.latitude;
       lon.value = store.state.longitude;
       units.value = store.state.units;
+      date.value = store.state.current_date;
     });
 
     return {
@@ -154,6 +156,7 @@ export default {
       temperature,
       weather_main,
       weather_description,
+      date,
       openSearchMenu
     };
   },

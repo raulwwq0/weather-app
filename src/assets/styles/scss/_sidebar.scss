@@ -1,7 +1,8 @@
 @use 'var';
 
 #sidebar{
-    display: block;
+    grid-area: sidebar;
+    display: grid;
     position: absolute;
     overflow: hidden;
     background-color: var.$bg-color-2;

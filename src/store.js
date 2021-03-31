@@ -6,6 +6,7 @@ const store = createStore({
     location: "malaga",
     latitude: "36.7213028",
     longitude: "-4.4216366",
+    current_date: "",
   },
   mutations: {
     FAHRENHEIT:(state) => {
@@ -22,6 +23,7 @@ const store = createStore({
       state.longitude = data.lon;
     },
 
+    SET_DATE: (state, date) => state.current_date = date
   },
 });
 
