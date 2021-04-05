@@ -89,7 +89,7 @@ export default {
     }
 
     function closeSearchMenu() {
-      gsap.to("#search-bar", { x: "-500px", duration: 0.5 });
+      gsap.to("#search-bar", { x: "-100%", duration: 0.5 });
     }
 
     return {

@@ -11,7 +11,7 @@
 #sidebar {
   grid-area: sidebar;
   display: grid;
-  position: absolute;
+  position: fixed;
   overflow: hidden;
   background-color: #1E213A;
   width: 460px;
@@ -125,8 +125,9 @@
   padding-top: 80px;
   padding-left: 45px;
   padding-right: 45px;
-  position: absolute;
+  position: fixed;
   left: -500px;
+  z-index: 10;
 }
 #search-bar #search-close-button {
   display: block;
@@ -210,6 +211,7 @@
   grid-gap: 70px;
   padding: 150px;
   padding-right: 125px;
+  padding-bottom: 25px;
 }
 #info #five-days-weather {
   display: grid;
@@ -353,6 +355,103 @@
   color: #E7E7EB;
 }
 
+@media screen and (max-width: 1340px) {
+  #info {
+    grid-template-rows: 415px auto;
+  }
+  #info #five-days-weather {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 1220px) {
+  #info {
+    grid-template-rows: 630px auto;
+  }
+  #info #five-days-weather {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #info #highlights {
+    grid-template-areas: "title" "wind-status" "humidity" "visibility" "air-presure";
+    grid-template-columns: 1fr;
+    grid-template-rows: 25px repeat(2, 1fr) repeat(2, 160px);
+  }
+}
+@media screen and (max-width: 1000px) {
+  #app {
+    height: auto !important;
+    grid-template-areas: "sidebar" "info" !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 100vh auto;
+  }
+
+  #sidebar {
+    width: 100%;
+    position: absolute;
+  }
+  #sidebar #weather-img #cloud-bg {
+    left: 0px;
+    right: 0px;
+    margin: auto;
+  }
+
+  #search-bar {
+    left: -100%;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 90%;
+  }
+
+  #info {
+    padding: 50px;
+  }
+}
+@media screen and (max-width: 690px) {
+  #sidebar #weather-img {
+    width: 100%;
+  }
+  #sidebar #weather-img #cloud-bg {
+    width: 100% !important;
+    height: auto !important;
+    top: 0px;
+    bottom: 0px;
+  }
+
+  #temperature-buttons {
+    display: flex;
+    flex-flow: column wrap;
+    top: 100px;
+    right: 45px;
+  }
+  #temperature-buttons #fahrenheit {
+    margin-left: 0px;
+    margin-top: 12px;
+  }
+
+  #info #creator {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (max-height: 1020px) {
+  #sidebar #sidebar-buttons {
+    margin-bottom: 0px;
+  }
+  #sidebar #weather-img {
+    height: 300px;
+  }
+  #sidebar #weather-img #cloud-bg {
+    height: 300px;
+    width: auto;
+  }
+  #sidebar #weather-img .weather-state {
+    top: 70px;
+  }
+  #sidebar #weather-name {
+    margin-top: 0px;
+  }
+  #sidebar #user-data {
+    margin-top: 15px;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -363,7 +462,6 @@
 body {
   background-color: #100E1D;
   overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 #app {

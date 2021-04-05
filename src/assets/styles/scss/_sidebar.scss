@@ -3,7 +3,7 @@
 #sidebar{
     grid-area: sidebar;
     display: grid;
-    position: absolute;
+    position: fixed;
     overflow: hidden;
     background-color: var.$bg-color-2;
     width: 460px;

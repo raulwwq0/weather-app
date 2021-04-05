@@ -181,7 +181,11 @@ export default {
     }
 
     function openSearchMenu() {
-      gsap.to("#search-bar", { x: "500px", duration: 0.5 });
+      if(screen.width <= 1000){
+        gsap.to("#search-bar", { x: "100vw", duration: 0.5 });
+      } else {
+        gsap.to("#search-bar", { x: "500px", duration: 0.5 });
+      }
     }
 
     onMounted(() => {

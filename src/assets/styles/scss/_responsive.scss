@@ -1,0 +1,126 @@
+@media screen and (max-width: 1340px){
+    #info{
+        grid-template-rows: 415px auto;
+
+        #five-days-weather{
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+
+@media screen and (max-width: 1220px){
+    #info{
+        grid-template-rows: 630px auto;
+
+        #five-days-weather{
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        #highlights{
+            grid-template-areas: 
+            "title"
+            "wind-status"
+            "humidity"
+            "visibility"
+            "air-presure";
+            grid-template-columns: 1fr;
+            grid-template-rows: 25px repeat(2, 1fr) repeat(2, 160px);
+
+        }
+    }
+}
+
+@media screen and (max-width: 1000px){
+    #app{
+        height: auto !important;
+        grid-template-areas: 
+        "sidebar"
+        "info" !important;
+        grid-template-columns: 1fr !important;
+        grid-template-rows: 100vh auto;
+    }
+
+    #sidebar{
+        width: 100%;
+        position: absolute;
+        #weather-img{
+            #cloud-bg {
+                left: 0px;
+                right: 0px;
+                margin: auto;
+            }
+        }
+    }
+
+    #search-bar{
+        left: -100%;
+        padding-left: 5%;
+        padding-right: 5%;
+        width: 100% - 10%;
+    }
+
+    #info{
+        padding: 50px;
+    }
+
+}
+
+@media screen and (max-width: 690px){
+    #sidebar{
+        #weather-img{
+            width: 100%;
+            #cloud-bg {
+                width: 100% !important;
+                height: auto !important;
+                top: 0px;
+                bottom: 0px;
+            }
+        }
+    }
+
+    #temperature-buttons{
+        display: flex;
+        flex-flow: column wrap;
+        top: 100px;
+        right: 45px;
+
+        #fahrenheit{
+            margin-left: 0px;
+            margin-top: 12px;
+        }
+    }
+
+    #info{
+        #creator{
+            font-size: 2.5vw;
+        }
+    }
+}
+
+@media screen and (max-height: 1020px){
+    #sidebar{
+        #sidebar-buttons{
+            margin-bottom: 0px;
+        }
+
+        #weather-img{
+            height: 300px;
+            #cloud-bg {
+                height: 300px;
+                width: auto;
+            }
+
+            .weather-state{
+                top: 70px;
+            }
+        }
+
+        #weather-name{
+            margin-top: 0px;
+        }
+
+        #user-data{
+            margin-top: 15px;
+        }
+    }
+}

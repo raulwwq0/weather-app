@@ -3,6 +3,7 @@
 @use 'temperature';
 @use 'search';
 @use 'info';
+@use 'responsive';
 
 *{
     margin: 0;
@@ -14,7 +15,6 @@
 body{
     background-color: var.$bg-color-1;
     overflow-x: hidden;
-    overflow-y: hidden;
 }
 
 #app{
