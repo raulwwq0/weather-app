@@ -117,7 +117,7 @@ import store from "../store";
 export default {
   name: "Sidebar",
   setup() {
-    const api = "http://api.openweathermap.org/data/2.5/";
+    const api = "//api.openweathermap.org/data/2.5/";
     const api_key = process.env.VUE_APP_API_KEY;
     var units = ref(store.state.units);
     var location = ref(store.state.location);
@@ -148,7 +148,7 @@ export default {
       navigator.geolocation.getCurrentPosition((position) => {
         axios
           .get(
-            `https://eu1.locationiq.com/v1/reverse.php?key=${process.env.VUE_APP_LOCATION_IQ_TOKEN}&lat=${position.coords.latitude}&lon=${position.coords.longitude}&format=json`
+            `//eu1.locationiq.com/v1/reverse.php?key=${process.env.VUE_APP_LOCATION_IQ_TOKEN}&lat=${position.coords.latitude}&lon=${position.coords.longitude}&format=json`
           )
           .then((res) => {
             store.commit("SET_CITY", {

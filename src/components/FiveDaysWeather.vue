@@ -103,7 +103,7 @@ import dayjs from "dayjs";
 export default {
   name: "FiveDaysWeather",
   setup() {
-    const api = "http://api.openweathermap.org/data/2.5/";
+    const api = "//api.openweathermap.org/data/2.5/";
     const api_key = process.env.VUE_APP_API_KEY;
     var results = ref([]);
     var units = ref(store.state.units);

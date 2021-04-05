@@ -45,7 +45,7 @@ import store from "../store";
 export default {
   name: "Search",
   setup() {
-    const api = "http://api.openweathermap.org/geo/1.0/";
+    const api = "//api.openweathermap.org/geo/1.0/";
     const api_key = process.env.VUE_APP_API_KEY;
     var city = ref(store.state.location);
     var results = ref([]);

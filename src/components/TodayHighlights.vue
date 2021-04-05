@@ -48,7 +48,7 @@ import axios from "axios";
 export default {
   name: "TodayHighlights",
   setup() {
-    const api = "http://api.openweathermap.org/data/2.5/";
+    const api = "//api.openweathermap.org/data/2.5/";
     const api_key = process.env.VUE_APP_API_KEY;
     var units = ref(store.state.units);
     var wind_speed = ref(null);
