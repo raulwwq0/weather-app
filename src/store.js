@@ -3,9 +3,9 @@ import { createStore } from "vuex";
 const store = createStore({
   state: {
     units: "metric",
-    location: "malaga",
-    latitude: "36.7213028",
-    longitude: "-4.4216366",
+    location: "london",
+    latitude: "51.5073219",
+    longitude: "-0.1276474",
     current_date: "",
   },
   mutations: {

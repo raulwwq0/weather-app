@@ -75,8 +75,6 @@ export default {
     }
 
     function setWindDirection(wind_direction){
-      console.log(wind_direction)
-
       if(document.getElementById("wind-direction-mark") == null) return
 
       if(wind_direction > 10 && wind_direction <= 30){

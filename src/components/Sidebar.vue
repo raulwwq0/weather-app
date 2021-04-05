@@ -1,8 +1,16 @@
 <template>
   <div id="sidebar">
     <div id="sidebar-buttons">
-      <button id="search-button" @click="openSearchMenu()">Search for places</button>
-      <button id="gps-button" class="material-icons">my_location</button>
+      <button id="search-button" @click="openSearchMenu()">
+        Search for places
+      </button>
+      <button
+        id="gps-button"
+        class="material-icons"
+        @click="getCurrentLocation()"
+      >
+        my_location
+      </button>
     </div>
 
     <div id="weather-img">
@@ -91,7 +99,7 @@
 
     <h2 id="weather-name">{{ weather_main }}</h2>
     <div id="user-data">
-      <h3 id="date">Today • {{date}}</h3>
+      <h3 id="date">Today • {{ date }}</h3>
       <h3 id="user-location">
         <span class="material-icons">location_on</span>
         <span id="city-name">{{ location }}</span>
@@ -101,7 +109,7 @@
 </template>
 
 <script>
-import { ref, watchEffect } from "vue";
+import { onMounted, ref, watchEffect } from "vue";
 import axios from "axios";
 import gsap from "gsap";
 import store from "../store";
@@ -136,12 +144,57 @@ export default {
         });
     }
 
-    function openSearchMenu(){
-      gsap.to('#search-bar', {x: '500px', duration: 0.5});
+    function getCurrentLocation() {
+      navigator.geolocation.getCurrentPosition((position) => {
+        axios
+          .get(
+            `https://eu1.locationiq.com/v1/reverse.php?key=${process.env.VUE_APP_LOCATION_IQ_TOKEN}&lat=${position.coords.latitude}&lon=${position.coords.longitude}&format=json`
+          )
+          .then((res) => {
+            store.commit("SET_CITY", {
+              city: res.data.address.city,
+              lat: position.coords.latitude,
+              lon: position.coords.longitude,
+            });
+          });
+
+        document.getElementById("gps-button").style.backgroundColor = "#E7E7EB";
+        document.getElementById("gps-button").style.color = "#1E213A";
+      }, (error) => {
+        switch(error.code) {
+        case error.PERMISSION_DENIED:
+            alert("Location permissions must be enabled to get your current location");
+            document.getElementById("gps-button").style.backgroundColor = "#6E707A";
+            document.getElementById("gps-button").style.color = "#E7E7EB";
+            break;
+        case error.POSITION_UNAVAILABLE:
+            alert("Location is no available...");
+            document.getElementById("gps-button").style.backgroundColor = "#6E707A";
+            document.getElementById("gps-button").style.color = "#E7E7EB";
+            break;
+        case error.TIMEOUT:
+        case error.UNKNOWN_ERROR:
+            console.log(error);
+            break;
+        }
+      })
     }
 
+    function openSearchMenu() {
+      gsap.to("#search-bar", { x: "500px", duration: 0.5 });
+    }
+
+    onMounted(() => {
+      getCurrentLocation();
+    });
+
     watchEffect(() => {
-      getWeatherData(store.state.location, store.state.units, store.state.latitude, store.state.longitude);
+      getWeatherData(
+        store.state.location,
+        store.state.units,
+        store.state.latitude,
+        store.state.longitude
+      );
       location.value = store.state.location;
       lat.value = store.state.latitude;
       lon.value = store.state.longitude;
@@ -156,7 +209,8 @@ export default {
       weather_main,
       weather_description,
       date,
-      openSearchMenu
+      getCurrentLocation,
+      openSearchMenu,
     };
   },
 };
