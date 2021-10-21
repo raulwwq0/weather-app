@@ -1,24 +1,3 @@
-# weather-app
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# The Weather App
+## See the weather in every part of the world
+You can search an especific city/town, or even use the GPS to let the website know where to find this information.
